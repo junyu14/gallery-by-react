@@ -11,7 +11,7 @@ var webpack = require('webpack');
 module.exports = {
 
   output: {
-    publicPath: 'assets/',
+    publicPath: '/assets/',
     path: 'dist/assets/',
     filename: 'main.js'
   },
@@ -26,9 +26,9 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugiiPlugin(),
-    new webpack.optimize.UglifyJsPlug(n,
-    new webpack.optimize.OccurenceOrdern)(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -54,15 +54,15 @@ module.exports = {
       loader: 'babel-loader'
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}'
+      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "firefox 15"]}'
     }, {
       test: /\.scss/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
-    },{
-      test:/\.json$/,
-      loader:'json-loader'
+      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "firefox 15"]}!sass-loader?outputStyle=expanded'
     }, {
-      test: /\.(png|jpg|woff|woff2)$/,
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
+      test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
       loader: 'url-loader?limit=8192'
     }]
   }
