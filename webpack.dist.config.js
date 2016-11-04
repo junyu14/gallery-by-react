@@ -11,7 +11,7 @@ var webpack = require('webpack');
 module.exports = {
 
   output: {
-    publicPath: '/assets/',
+    publicPath: 'assets/',
     path: 'dist/assets/',
     filename: 'main.js'
   },
@@ -26,9 +26,9 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugiiPlugin(),
+    new webpack.optimize.UglifyJsPlug(n,
+    new webpack.optimize.OccurenceOrdern)(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
   ],
